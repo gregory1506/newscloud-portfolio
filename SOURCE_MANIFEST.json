@@ -1,0 +1,1404 @@
+{
+  "algorithm_policy": "Production math, quotas and recovery algorithms unchanged; only recorded sanitization, recipient-backfill/test omission and optional renderer import/API adaptations.",
+  "exclusions": {
+    "data_and_contacts": [
+      "supabase/seed.sql",
+      "config/**",
+      "docs/data/**",
+      "public-dashboard/**",
+      "public-regions/**",
+      "output/**",
+      "tests/fixtures/**",
+      "functions/legislative_signal/us_delegations.json"
+    ],
+    "default_deny": "Every tracked path not in ALLOWLIST is excluded; untracked files and Git history are never read for export.",
+    "deployment_authority": [
+      ".github/**",
+      "infrastructure/**",
+      "wrangler.toml",
+      "supabase/config.toml",
+      "scripts/gcp_setup.sh",
+      "scripts/deploy_function.sh",
+      "scripts/stage_*.py",
+      "scripts/prune_artifact_registry_images.py"
+    ],
+    "private_material": [
+      ".git/**",
+      ".env*",
+      "AGENTS.md",
+      ".agents/**",
+      "work_log.md",
+      "lessons_learned.md",
+      "next_steps.md",
+      "docs/**",
+      "tmp/**"
+    ],
+    "reference_limitations": "reference/ is review-only, not a runnable deployment: provider configuration, private inputs, staging helpers, news/map assets and credentials are intentionally absent. scripts/render_chamber_map.py is optional source requiring Pillow and omitted geographic assets, never needed by the offline demo. Generic public provider API addresses and OAuth scope URIs remain as architectural evidence; deployed project endpoints and authority identifiers are sanitized.",
+    "test_policy": "Only the eight listed dependency-light behavioral test modules; omit source-text/production wiring/cloud tests, production conftest, maps and external fixtures. One map-rendering test is removed from the retained board-export module."
+  },
+  "exported_source_files": 126,
+  "files": [
+    {
+      "exported_path": "reference/functions/emailer/emailer_object_store.py",
+      "exported_sha256": "283dcf4eee7c3135dbd1b45d0d7c40c664afa2609d92b1b67a14bebe9a9438ee",
+      "original_sha256": "283dcf4eee7c3135dbd1b45d0d7c40c664afa2609d92b1b67a14bebe9a9438ee",
+      "scope": "reference-only",
+      "source_git_blob": "e3b6d4e7d86fd1338afbe65e250003e4b4193145",
+      "source_mode": "100644",
+      "source_path": "functions/emailer/emailer_object_store.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/emailer/main.py",
+      "exported_sha256": "60f51ff05e497dee7befeb8da03ce31d31dd8bcc525d8776756084e993f73d18",
+      "original_sha256": "60f51ff05e497dee7befeb8da03ce31d31dd8bcc525d8776756084e993f73d18",
+      "scope": "reference-only",
+      "source_git_blob": "706859ea3977542f1cb26221b5bdb49d1dcc7067",
+      "source_mode": "100644",
+      "source_path": "functions/emailer/main.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/emailer/requirements.in",
+      "exported_sha256": "fcb6a687775430dd94c406146f9c4856f499b3e17d2dd0dca25be6921eddafdc",
+      "original_sha256": "fcb6a687775430dd94c406146f9c4856f499b3e17d2dd0dca25be6921eddafdc",
+      "scope": "reference-only",
+      "source_git_blob": "53f136d62516e85a52c791b0d09747fe4ca8850c",
+      "source_mode": "100644",
+      "source_path": "functions/emailer/requirements.in",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/emailer/requirements.txt",
+      "exported_sha256": "9b143153c9b7c64a07527bdb58ca88c7ff3b01b9a72722b5b3d958d5ded8d82b",
+      "original_sha256": "9b143153c9b7c64a07527bdb58ca88c7ff3b01b9a72722b5b3d958d5ded8d82b",
+      "scope": "reference-only",
+      "source_git_blob": "c22ea80f106f96533f77b619915567da6d765522",
+      "source_mode": "100644",
+      "source_path": "functions/emailer/requirements.txt",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/finalizer/main.py",
+      "exported_sha256": "c3d81fa5851c4c26c2c605c13d0a01103afd997e7c8805205e629a9536cdeff8",
+      "original_sha256": "c3d81fa5851c4c26c2c605c13d0a01103afd997e7c8805205e629a9536cdeff8",
+      "scope": "reference-only",
+      "source_git_blob": "26293101471e79da44c6ba486d5b612f03810f2f",
+      "source_mode": "100644",
+      "source_path": "functions/finalizer/main.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/finalizer/pubsub_backlog.py",
+      "exported_sha256": "1d0ed19d7a663f51f0cdbac0ff7336cc1f91862a98736e59300ab961d43fa316",
+      "original_sha256": "1d0ed19d7a663f51f0cdbac0ff7336cc1f91862a98736e59300ab961d43fa316",
+      "scope": "reference-only",
+      "source_git_blob": "7721058f252071a121e973b870153780f0fff809",
+      "source_mode": "100644",
+      "source_path": "functions/finalizer/pubsub_backlog.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/finalizer/requirements.in",
+      "exported_sha256": "6a0798130948745f415adcb71a83f4791580e580b8156718e5794ee9a013979b",
+      "original_sha256": "6a0798130948745f415adcb71a83f4791580e580b8156718e5794ee9a013979b",
+      "scope": "reference-only",
+      "source_git_blob": "be3dce89d56d76adda1899e9767e51c0bde98f63",
+      "source_mode": "100644",
+      "source_path": "functions/finalizer/requirements.in",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/finalizer/requirements.txt",
+      "exported_sha256": "ef640703d59f40579bb58dba3d437c25caebf707399c97641a0689c256cd26cd",
+      "original_sha256": "ef640703d59f40579bb58dba3d437c25caebf707399c97641a0689c256cd26cd",
+      "scope": "reference-only",
+      "source_git_blob": "ec4cf4be09559deb64988ee1ee07b566f57eac82",
+      "source_mode": "100644",
+      "source_path": "functions/finalizer/requirements.txt",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/gatherer/config.py",
+      "exported_sha256": "6d1efb721f894d40a3ed51af6c13e6b14c42c4318642efead4adc2ba16e68818",
+      "original_sha256": "6d1efb721f894d40a3ed51af6c13e6b14c42c4318642efead4adc2ba16e68818",
+      "scope": "reference-only",
+      "source_git_blob": "33195818ef0f516236c14cc67afaaf960c7a0306",
+      "source_mode": "100644",
+      "source_path": "functions/gatherer/config.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/gatherer/district_gatherer.py",
+      "exported_sha256": "af2b321ad6bb63eb18ba471bee420e739a40ff172b8c59f7324c5fbbb3408c3a",
+      "original_sha256": "af2b321ad6bb63eb18ba471bee420e739a40ff172b8c59f7324c5fbbb3408c3a",
+      "scope": "reference-only",
+      "source_git_blob": "ec918bbaf268f039196d3c343504c0a659660a1c",
+      "source_mode": "100644",
+      "source_path": "functions/gatherer/district_gatherer.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/gatherer/district_sources.py",
+      "exported_sha256": "6899d577d1425f02bcbbf793c23a8741dd40101568ca6f50ef15956ceb51a598",
+      "original_sha256": "6899d577d1425f02bcbbf793c23a8741dd40101568ca6f50ef15956ceb51a598",
+      "scope": "reference-only",
+      "source_git_blob": "d91c29e37d2279d189911f07b52b2116ae78c06d",
+      "source_mode": "100644",
+      "source_path": "functions/gatherer/district_sources.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/gatherer/gemini_fallback_agent.py",
+      "exported_sha256": "deff73f0168e6cb014e145807fcf207b9975680871ac4efcdec5d64a0995148e",
+      "original_sha256": "deff73f0168e6cb014e145807fcf207b9975680871ac4efcdec5d64a0995148e",
+      "scope": "reference-only",
+      "source_git_blob": "240273f569a77b881d6451d80ba6232d12fe546d",
+      "source_mode": "100644",
+      "source_path": "functions/gatherer/gemini_fallback_agent.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/gatherer/main.py",
+      "exported_sha256": "72769daa0a6f99595e917d049a26b3f0f978c7d41f8f46c0f15a835b07504c9d",
+      "original_sha256": "305972656d6f147c1c2cdc8e263c106f109ac36d12b715caedf23b97efa78bc6",
+      "scope": "reference-only",
+      "source_git_blob": "14350d25d7c8aeaa06df52f8ed53eeae1fb069b3",
+      "source_mode": "100644",
+      "source_path": "functions/gatherer/main.py",
+      "transformations": [
+        {
+          "category": "deployment_host_to_example_invalid",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "exported_path": "reference/functions/gatherer/requirements.in",
+      "exported_sha256": "4226c93b2995e6e6e0f783b35eb10f7a4aa08ec7696699800b43dd174a3e707f",
+      "original_sha256": "4226c93b2995e6e6e0f783b35eb10f7a4aa08ec7696699800b43dd174a3e707f",
+      "scope": "reference-only",
+      "source_git_blob": "adffd9e0802ed55354a1b0babb7f97f1ad03100d",
+      "source_mode": "100644",
+      "source_path": "functions/gatherer/requirements.in",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/gatherer/requirements.txt",
+      "exported_sha256": "a4f0c4c76acd342e33a160689ce46fed92e44068c88d3997a1c10f2f73c4a51a",
+      "original_sha256": "a4f0c4c76acd342e33a160689ce46fed92e44068c88d3997a1c10f2f73c4a51a",
+      "scope": "reference-only",
+      "source_git_blob": "c66182e528ae1f65ced8a5d574e22c9048d7a7fc",
+      "source_mode": "100644",
+      "source_path": "functions/gatherer/requirements.txt",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/gatherer/term_valence.py",
+      "exported_sha256": "8d0374ae22d8f83cc36f694f5a689cf9724983a71d2317a89657affa9e58d477",
+      "original_sha256": "8d0374ae22d8f83cc36f694f5a689cf9724983a71d2317a89657affa9e58d477",
+      "scope": "reference-only",
+      "source_git_blob": "d8f60d05d56ee905d972bda68131f4aeca122153",
+      "source_mode": "100644",
+      "source_path": "functions/gatherer/term_valence.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/gatherer/topic_model.py",
+      "exported_sha256": "a169590b4636d150cab5b51453d6fd523f702bb246e0f89a7165096f40e91da7",
+      "original_sha256": "a169590b4636d150cab5b51453d6fd523f702bb246e0f89a7165096f40e91da7",
+      "scope": "reference-only",
+      "source_git_blob": "7b01d93485a176eafb9b285543fca3c6c2409d17",
+      "source_mode": "100644",
+      "source_path": "functions/gatherer/topic_model.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/generator/generator_object_store.py",
+      "exported_sha256": "3b91a8617894bb8ec77f75312c88c4ada300fb57ac4afd07b1c6188a605aaed7",
+      "original_sha256": "3b91a8617894bb8ec77f75312c88c4ada300fb57ac4afd07b1c6188a605aaed7",
+      "scope": "reference-only",
+      "source_git_blob": "626837b85ddb248b727a9aa4533fcaf30d20bde6",
+      "source_mode": "100644",
+      "source_path": "functions/generator/generator_object_store.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/generator/main.py",
+      "exported_sha256": "0213ba2b51031e20683efcc15b2f11981817f249b19aeb895277de67c6e56569",
+      "original_sha256": "0213ba2b51031e20683efcc15b2f11981817f249b19aeb895277de67c6e56569",
+      "scope": "reference-only",
+      "source_git_blob": "c889116ddc0fe6a077b39005f6d62ee7599bf25a",
+      "source_mode": "100644",
+      "source_path": "functions/generator/main.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/generator/requirements.in",
+      "exported_sha256": "6dfddde4f0f735510df5721f7f29713d752ab2c749613de7673f78642e8c07b2",
+      "original_sha256": "6dfddde4f0f735510df5721f7f29713d752ab2c749613de7673f78642e8c07b2",
+      "scope": "reference-only",
+      "source_git_blob": "15c345aef7a0d0dc3c6788d6c0302643224f8008",
+      "source_mode": "100644",
+      "source_path": "functions/generator/requirements.in",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/generator/requirements.txt",
+      "exported_sha256": "603131676c871ebb28e93a54f4f6abe0d2f0c218c9eb0b0700d0a33cd8d7dc20",
+      "original_sha256": "603131676c871ebb28e93a54f4f6abe0d2f0c218c9eb0b0700d0a33cd8d7dc20",
+      "scope": "reference-only",
+      "source_git_blob": "bfd9650ea31eca48cb8f2f5b89368edce21bbf13",
+      "source_mode": "100644",
+      "source_path": "functions/generator/requirements.txt",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/intake/main.py",
+      "exported_sha256": "10883088df8314791fdd656a2c834e16890026f5b8cda435df63b6ff8b2ec4dc",
+      "original_sha256": "13ca3799849de90dfe3237b40783be542b6091eb4aedb8148555bc35514dc418",
+      "scope": "reference-only",
+      "source_git_blob": "210476dab71180475747c41149cdb94d0adba261",
+      "source_mode": "100644",
+      "source_path": "functions/intake/main.py",
+      "transformations": [
+        {
+          "category": "deployment_host_to_example_invalid",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "exported_path": "reference/functions/intake/requirements.in",
+      "exported_sha256": "9c1ff0822b9aabc8f02996d2972d397f2adb25ab03359e87feef65d1ba015c17",
+      "original_sha256": "9c1ff0822b9aabc8f02996d2972d397f2adb25ab03359e87feef65d1ba015c17",
+      "scope": "reference-only",
+      "source_git_blob": "21cec2a63453f1fd5208dc89219327d1c5d9a527",
+      "source_mode": "100644",
+      "source_path": "functions/intake/requirements.in",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/intake/requirements.txt",
+      "exported_sha256": "fe57385657e60b2d658a772c90dc225d3226a645e9b5e46547fe2fac51716ba1",
+      "original_sha256": "fe57385657e60b2d658a772c90dc225d3226a645e9b5e46547fe2fac51716ba1",
+      "scope": "reference-only",
+      "source_git_blob": "1df277757a110af1219bcfd9148094df5b93c5f4",
+      "source_mode": "100644",
+      "source_path": "functions/intake/requirements.txt",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/legislative_signal/ad_spend.py",
+      "exported_sha256": "36c59ffd96084a9f4b1e0cbad37ac53b9df7cf01c0b2191cc258dd23c1cdefba",
+      "original_sha256": "36c59ffd96084a9f4b1e0cbad37ac53b9df7cf01c0b2191cc258dd23c1cdefba",
+      "scope": "reference-only",
+      "source_git_blob": "fb882b30672946061d70817f1798f5f17e99ac01",
+      "source_mode": "100644",
+      "source_path": "functions/legislative_signal/ad_spend.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/legislative_signal/congress_gov.py",
+      "exported_sha256": "2d33eef1f33d9bcca6495895518e8624c541d72afad2e28e8dec7bf69edc0ca0",
+      "original_sha256": "2d33eef1f33d9bcca6495895518e8624c541d72afad2e28e8dec7bf69edc0ca0",
+      "scope": "reference-only",
+      "source_git_blob": "265e13b3fe3553aafcc354467c9c0c2673151792",
+      "source_mode": "100644",
+      "source_path": "functions/legislative_signal/congress_gov.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/legislative_signal/digital_ads.py",
+      "exported_sha256": "3ba0582e5e1bc101117aad823bd4c5d27e3549eb9262c6d32f5f060eb9c91bea",
+      "original_sha256": "3ba0582e5e1bc101117aad823bd4c5d27e3549eb9262c6d32f5f060eb9c91bea",
+      "scope": "reference-only",
+      "source_git_blob": "7bbe1cfe1f70ce5dec4a3335bf6101ff0f2a94b1",
+      "source_mode": "100644",
+      "source_path": "functions/legislative_signal/digital_ads.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/legislative_signal/fec.py",
+      "exported_sha256": "0c796964966ccea5754175f34f36b8c48dc291b85c07f999f1eec455ca26743e",
+      "original_sha256": "0c796964966ccea5754175f34f36b8c48dc291b85c07f999f1eec455ca26743e",
+      "scope": "reference-only",
+      "source_git_blob": "bd8559606a68351355b513cbd1a4ecfa6702927f",
+      "source_mode": "100644",
+      "source_path": "functions/legislative_signal/fec.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/legislative_signal/main.py",
+      "exported_sha256": "df57522b00657da0121e8d320a62d089f8a783c891b51b75e06da2487c5f18dd",
+      "original_sha256": "df57522b00657da0121e8d320a62d089f8a783c891b51b75e06da2487c5f18dd",
+      "scope": "reference-only",
+      "source_git_blob": "880a13b7ea72f9e2bb28dbcb9368955523489306",
+      "source_mode": "100644",
+      "source_path": "functions/legislative_signal/main.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/legislative_signal/press_releases.py",
+      "exported_sha256": "a24c2091254ffff027dd2941b689a0920a1422c1387228094d75a3e5ee9478e1",
+      "original_sha256": "a24c2091254ffff027dd2941b689a0920a1422c1387228094d75a3e5ee9478e1",
+      "scope": "reference-only",
+      "source_git_blob": "47f7655135aa03b2bcdb2eac434ac7c44cacc1e8",
+      "source_mode": "100644",
+      "source_path": "functions/legislative_signal/press_releases.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/legislative_signal/repository.py",
+      "exported_sha256": "f54562667bcf06b5d4ff60848fe3cc75752cfbf25ff6873a333c9888a4d15180",
+      "original_sha256": "f54562667bcf06b5d4ff60848fe3cc75752cfbf25ff6873a333c9888a4d15180",
+      "scope": "reference-only",
+      "source_git_blob": "0323dffc74383bba1a31fcbc6ff85e9d23af50ef",
+      "source_mode": "100644",
+      "source_path": "functions/legislative_signal/repository.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/legislative_signal/requirements.in",
+      "exported_sha256": "a973539c85033fb1ca295a39821e8a7dc3a4e80711d1cb7bece4f8964fc02f81",
+      "original_sha256": "a973539c85033fb1ca295a39821e8a7dc3a4e80711d1cb7bece4f8964fc02f81",
+      "scope": "reference-only",
+      "source_git_blob": "52332173dcb132827e997d23e6e9f3f70486b25c",
+      "source_mode": "100644",
+      "source_path": "functions/legislative_signal/requirements.in",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/legislative_signal/requirements.txt",
+      "exported_sha256": "a6a495c83d435233734e9a1f9b1df04428a5c53e1adb2b3a710fff6e199e7c00",
+      "original_sha256": "a6a495c83d435233734e9a1f9b1df04428a5c53e1adb2b3a710fff6e199e7c00",
+      "scope": "reference-only",
+      "source_git_blob": "94dfc6cff2ae469b859a4e8bdb93e43bde738a9e",
+      "source_mode": "100644",
+      "source_path": "functions/legislative_signal/requirements.txt",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/ops_maintenance/main.py",
+      "exported_sha256": "3edc55eda4dfcee9ae519e78969094cffe3141d4087bdff5c2a2bde9d47d358a",
+      "original_sha256": "683833536ab178a2c72291f0148e76d3a31e7ad8340bbeefd383bef2cb361b52",
+      "scope": "reference-only",
+      "source_git_blob": "81d6309a9551e2327484d3aca40c5c53d6d2cb83",
+      "source_mode": "100644",
+      "source_path": "functions/ops_maintenance/main.py",
+      "transformations": [
+        {
+          "category": "deployment_host_to_example_invalid",
+          "occurrences": 2
+        },
+        {
+          "category": "deployment_resource_name_to_test_project",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "exported_path": "reference/functions/ops_maintenance/requirements.in",
+      "exported_sha256": "39216913be4081584bb383e043491f09d488753a65efe3cda3c5918f2f72227e",
+      "original_sha256": "39216913be4081584bb383e043491f09d488753a65efe3cda3c5918f2f72227e",
+      "scope": "reference-only",
+      "source_git_blob": "d5ce26e73633e54e95fa25bab7be9b0bf28a2205",
+      "source_mode": "100644",
+      "source_path": "functions/ops_maintenance/requirements.in",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/ops_maintenance/requirements.txt",
+      "exported_sha256": "70ac28fa66a3126db4f566e2f574b3b0ca4d881f1cdb1f2d69c22c3bd0d93583",
+      "original_sha256": "70ac28fa66a3126db4f566e2f574b3b0ca4d881f1cdb1f2d69c22c3bd0d93583",
+      "scope": "reference-only",
+      "source_git_blob": "636261f85899385499536164d529c1f19026d68a",
+      "source_mode": "100644",
+      "source_path": "functions/ops_maintenance/requirements.txt",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/orchestrator/main.py",
+      "exported_sha256": "7c12cc5e6d5802c3cffe8798d30f61aac22796786f2d6ef949a989ef08ba63fa",
+      "original_sha256": "7c12cc5e6d5802c3cffe8798d30f61aac22796786f2d6ef949a989ef08ba63fa",
+      "scope": "reference-only",
+      "source_git_blob": "af09a6c9706c508defae0e4ee1a245fe1d472aab",
+      "source_mode": "100644",
+      "source_path": "functions/orchestrator/main.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/orchestrator/requirements.in",
+      "exported_sha256": "6a0798130948745f415adcb71a83f4791580e580b8156718e5794ee9a013979b",
+      "original_sha256": "6a0798130948745f415adcb71a83f4791580e580b8156718e5794ee9a013979b",
+      "scope": "reference-only",
+      "source_git_blob": "be3dce89d56d76adda1899e9767e51c0bde98f63",
+      "source_mode": "100644",
+      "source_path": "functions/orchestrator/requirements.in",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/orchestrator/requirements.txt",
+      "exported_sha256": "ef640703d59f40579bb58dba3d437c25caebf707399c97641a0689c256cd26cd",
+      "original_sha256": "ef640703d59f40579bb58dba3d437c25caebf707399c97641a0689c256cd26cd",
+      "scope": "reference-only",
+      "source_git_blob": "ec4cf4be09559deb64988ee1ee07b566f57eac82",
+      "source_mode": "100644",
+      "source_path": "functions/orchestrator/requirements.txt",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/performance_brief/brief.py",
+      "exported_sha256": "796e19c236e33b0c74e34295fabc4f63ddb9ff30d0ed3e32ba43429c16ea4319",
+      "original_sha256": "796e19c236e33b0c74e34295fabc4f63ddb9ff30d0ed3e32ba43429c16ea4319",
+      "scope": "reference-only",
+      "source_git_blob": "7e72ed18edda02e5a9bc2566ce4ba7b60d9467f5",
+      "source_mode": "100644",
+      "source_path": "functions/performance_brief/brief.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/performance_brief/main.py",
+      "exported_sha256": "2a63264ab88e1fc895bfad23d7cfa26618577442c9a019aff153192d97e23e6b",
+      "original_sha256": "2a63264ab88e1fc895bfad23d7cfa26618577442c9a019aff153192d97e23e6b",
+      "scope": "reference-only",
+      "source_git_blob": "6a0f7ccfb9cae873c409482fe4afce786e83ac08",
+      "source_mode": "100644",
+      "source_path": "functions/performance_brief/main.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/performance_brief/metrics.py",
+      "exported_sha256": "d0525078b530640d0b9a3fb4b52102f678f02712f9594205957c59a0dd9ca654",
+      "original_sha256": "d0525078b530640d0b9a3fb4b52102f678f02712f9594205957c59a0dd9ca654",
+      "scope": "reference-only",
+      "source_git_blob": "dd39b5ae0637cd69417cb4b58776dc271252e7ae",
+      "source_mode": "100644",
+      "source_path": "functions/performance_brief/metrics.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/performance_brief/requirements.in",
+      "exported_sha256": "20536822f84105ff2dfb8047123cbc325da992640d9481013f49f0b5c5a829b1",
+      "original_sha256": "20536822f84105ff2dfb8047123cbc325da992640d9481013f49f0b5c5a829b1",
+      "scope": "reference-only",
+      "source_git_blob": "08e045c03819432bad7dd6a7dd014153dbf7a640",
+      "source_mode": "100644",
+      "source_path": "functions/performance_brief/requirements.in",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/performance_brief/requirements.txt",
+      "exported_sha256": "b44b98b1858e004d6a7b5e14c642771afdb25a57193f061604688605b8c934ea",
+      "original_sha256": "b44b98b1858e004d6a7b5e14c642771afdb25a57193f061604688605b8c934ea",
+      "scope": "reference-only",
+      "source_git_blob": "55a5785a3a48d239b1d9eae5245bf53758c025f3",
+      "source_mode": "100644",
+      "source_path": "functions/performance_brief/requirements.txt",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/scorer/main.py",
+      "exported_sha256": "48e270a71498edf436b220c7436e77302ad5eb5b9f93666f60e178ab4a558215",
+      "original_sha256": "48e270a71498edf436b220c7436e77302ad5eb5b9f93666f60e178ab4a558215",
+      "scope": "reference-only",
+      "source_git_blob": "6ab215b6e237d951171b703f56ff9e2ea3bf0d82",
+      "source_mode": "100644",
+      "source_path": "functions/scorer/main.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/scorer/nlp_analysis.py",
+      "exported_sha256": "c9ab71b7b811aec863685fee80853feed0aaffc96ab28676bd5bf8529e6e67cc",
+      "original_sha256": "c9ab71b7b811aec863685fee80853feed0aaffc96ab28676bd5bf8529e6e67cc",
+      "scope": "reference-only",
+      "source_git_blob": "7547523145746f82f5ac28363f2987419addfd2e",
+      "source_mode": "100644",
+      "source_path": "functions/scorer/nlp_analysis.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/scorer/requirements.in",
+      "exported_sha256": "fc9d5deec781c49fe044f6a605ca7f621c5a59f3b4c5f9b1eac7a1ae4cf2a653",
+      "original_sha256": "fc9d5deec781c49fe044f6a605ca7f621c5a59f3b4c5f9b1eac7a1ae4cf2a653",
+      "scope": "reference-only",
+      "source_git_blob": "ffc429df6ec86cb36df925620d417c3994fea35a",
+      "source_mode": "100644",
+      "source_path": "functions/scorer/requirements.in",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/scorer/requirements.txt",
+      "exported_sha256": "e25209fb63c5859be91bc862a777d9442c5b0eab1cb783e380ed5fd10e2eb6ae",
+      "original_sha256": "e25209fb63c5859be91bc862a777d9442c5b0eab1cb783e380ed5fd10e2eb6ae",
+      "scope": "reference-only",
+      "source_git_blob": "c80863cdd8e8753f8ad7fbbff4ba50d5dc14369c",
+      "source_mode": "100644",
+      "source_path": "functions/scorer/requirements.txt",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/site_publisher_launcher/main.py",
+      "exported_sha256": "0f465c9178fb08310b9c58d6eedc6d54f2f7dc5461b8cdda06b9d2de40f42e43",
+      "original_sha256": "29c6808ffb3ceafd0e6be7dd4c3ec33c508155c3b7d708e9f6d1fcf7a9bdb498",
+      "scope": "reference-only",
+      "source_git_blob": "f2159c5dbb72241f541f51ae1c901b4f7394f0ad",
+      "source_mode": "100644",
+      "source_path": "functions/site_publisher_launcher/main.py",
+      "transformations": [
+        {
+          "category": "deployment_resource_name_to_test_project",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "exported_path": "reference/functions/site_publisher_launcher/requirements.in",
+      "exported_sha256": "bd559a794b2c1ac2917087d6d7bf86d5048eb40fccb654b855d36d6f0ea30a2b",
+      "original_sha256": "bd559a794b2c1ac2917087d6d7bf86d5048eb40fccb654b855d36d6f0ea30a2b",
+      "scope": "reference-only",
+      "source_git_blob": "49bdd68bfc9dcb2eb9d40873d2093307226dbeb0",
+      "source_mode": "100644",
+      "source_path": "functions/site_publisher_launcher/requirements.in",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/functions/site_publisher_launcher/requirements.txt",
+      "exported_sha256": "cf8d091aa721e64aabf3b79d582af79cfe4f1bcbf29c84df45a573edf2b9d6ed",
+      "original_sha256": "cf8d091aa721e64aabf3b79d582af79cfe4f1bcbf29c84df45a573edf2b9d6ed",
+      "scope": "reference-only",
+      "source_git_blob": "01ba1d07575f8b743fe0afc05fe4514b3b8cb119",
+      "source_mode": "100644",
+      "source_path": "functions/site_publisher_launcher/requirements.txt",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/jobs/site_publisher/race_board.py",
+      "exported_sha256": "7056db354af08e0c774e8c6ca130a9ddd8fe762d59295d7e8b79f7f2761f219a",
+      "original_sha256": "7056db354af08e0c774e8c6ca130a9ddd8fe762d59295d7e8b79f7f2761f219a",
+      "scope": "reference-only",
+      "source_git_blob": "b242dd1ad1438c89007365c5d7b13026316cf156",
+      "source_mode": "100644",
+      "source_path": "jobs/site_publisher/race_board.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/jobs/site_publisher/requirements.in",
+      "exported_sha256": "648c5f4a6d30a80ba65d57162b6eb5d19827e8699b561c43698c8df9af6a12ed",
+      "original_sha256": "648c5f4a6d30a80ba65d57162b6eb5d19827e8699b561c43698c8df9af6a12ed",
+      "scope": "reference-only",
+      "source_git_blob": "501ed33e448b1364b2d574e33e47823724c3c973",
+      "source_mode": "100644",
+      "source_path": "jobs/site_publisher/requirements.in",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/jobs/site_publisher/requirements.txt",
+      "exported_sha256": "873465c3eb61568bbf0e6b3ead8dfabc36b18db214551d63301d2e79a04a0bd4",
+      "original_sha256": "873465c3eb61568bbf0e6b3ead8dfabc36b18db214551d63301d2e79a04a0bd4",
+      "scope": "reference-only",
+      "source_git_blob": "6719b6c03eeb489576a9c31e8f089f90431cd6be",
+      "source_mode": "100644",
+      "source_path": "jobs/site_publisher/requirements.txt",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/jobs/site_publisher/runner.py",
+      "exported_sha256": "d9dd9e529df8c07219a021545de85a1ecfa9bfe2111ecb7b7854114f66ae71c1",
+      "original_sha256": "0046b4d3a4dbb07e7aeb2c4bc3d6cf5d956fcb15d1ce7744b4a1dae31a6f6605",
+      "scope": "reference-only",
+      "source_git_blob": "627d3ff9e9a806913b10ff379c546f1fb8509627",
+      "source_mode": "100644",
+      "source_path": "jobs/site_publisher/runner.py",
+      "transformations": [
+        {
+          "category": "deployment_host_to_example_invalid",
+          "occurrences": 2
+        },
+        {
+          "category": "deployment_resource_name_to_test_project",
+          "occurrences": 5
+        }
+      ]
+    },
+    {
+      "exported_path": "scripts/__init__.py",
+      "exported_sha256": "038b88fb305eb51503f3f70ed0455886e0b5c610d0b66ed315c32a786a641666",
+      "original_sha256": "038b88fb305eb51503f3f70ed0455886e0b5c610d0b66ed315c32a786a641666",
+      "scope": "reusable-source",
+      "source_git_blob": "15334afb7605212cda0f0cb5b81ef49c43772512",
+      "source_mode": "100644",
+      "source_path": "scripts/__init__.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/scripts/analyze_validity.py",
+      "exported_sha256": "18b7c0447d396bd793f27e5e805d3a9e1a1e47761567e4a39bb6587bedc32d64",
+      "original_sha256": "18b7c0447d396bd793f27e5e805d3a9e1a1e47761567e4a39bb6587bedc32d64",
+      "scope": "reference-only",
+      "source_git_blob": "f905722765eca59d06b62d8c7a8f236c82322b86",
+      "source_mode": "100644",
+      "source_path": "scripts/analyze_validity.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "scripts/export_race_board_data.py",
+      "exported_sha256": "5e3f4c7a5d7a57ec2a5acb2202861b074a863a5c6f49dc15a0048b730f248ef2",
+      "original_sha256": "5e3f4c7a5d7a57ec2a5acb2202861b074a863a5c6f49dc15a0048b730f248ef2",
+      "scope": "reusable-source",
+      "source_git_blob": "ac0a2e119cda800d7fab4835f9e8198c4d9d0190",
+      "source_mode": "100644",
+      "source_path": "scripts/export_race_board_data.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/scripts/free_tier_report.py",
+      "exported_sha256": "340e74984be8069b106e0d963292846bc174e832992e758bd20b29fec08e1ce4",
+      "original_sha256": "95cd8793ce7b73c909efc879295d9decb7d83224ea0d711e4e01dc1a4cf52ec2",
+      "scope": "reference-only",
+      "source_git_blob": "a0f95f60cfc012349598d5e927503410b6cc9cad",
+      "source_mode": "100755",
+      "source_path": "scripts/free_tier_report.py",
+      "transformations": [
+        {
+          "category": "deployment_resource_name_to_test_project",
+          "occurrences": 10
+        },
+        {
+          "category": "deployment_authority_constant_to_test_project:R2_ACCOUNT_ID",
+          "occurrences": 1
+        },
+        {
+          "category": "deployment_authority_constant_to_test_project:CLOUDFLARE_ACCOUNT_ID",
+          "occurrences": 1
+        },
+        {
+          "category": "deployment_authority_constant_to_test_project:SUPABASE_PROJECT_REF",
+          "occurrences": 1
+        },
+        {
+          "category": "deployment_authority_constant_to_test_project:SUPABASE_TOKEN_PROJECT",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "exported_path": "scripts/generate_board_email.py",
+      "exported_sha256": "3771d4e1be85241138a1eff1414636f07da9b827b4275aa19d1b64c01bee5c54",
+      "original_sha256": "338fc884919bc332c914f3d86f5f88977a47dbbeaa013cb9059defedb2b956df",
+      "scope": "reusable-source",
+      "source_git_blob": "e5a95b57768d35394c7ef1e6ac4a24f0a64f9b8d",
+      "source_mode": "100644",
+      "source_path": "scripts/generate_board_email.py",
+      "transformations": [
+        {
+          "category": "deployment_host_to_example_invalid",
+          "occurrences": 1
+        },
+        {
+          "category": "text_renderer_optional_explicit_map_urls_preserving_none_default",
+          "occurrences": 2
+        },
+        {
+          "category": "defer_optional_map_import_until_configured",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "exported_path": "scripts/r2_object_store.py",
+      "exported_sha256": "4c2553383a22b0541db725dcec582b9eb137a9bc3e7d5ce6ace7d72963d893ea",
+      "original_sha256": "4c2553383a22b0541db725dcec582b9eb137a9bc3e7d5ce6ace7d72963d893ea",
+      "scope": "reusable-source",
+      "source_git_blob": "53d486255974fd345c5de35650e8872af18f5a7f",
+      "source_mode": "100644",
+      "source_path": "scripts/r2_object_store.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "scripts/render_chamber_map.py",
+      "exported_sha256": "ed150456d1582e1c14d0fa6a64f2690a75c06a2055c461500216afa7b755ddc3",
+      "original_sha256": "ed150456d1582e1c14d0fa6a64f2690a75c06a2055c461500216afa7b755ddc3",
+      "scope": "optional-map-source",
+      "source_git_blob": "6256684a88e3a60c0d334ce2034d8ace4a6d9669",
+      "source_mode": "100644",
+      "source_path": "scripts/render_chamber_map.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/scripts/render_chamber_map.py",
+      "exported_sha256": "ed150456d1582e1c14d0fa6a64f2690a75c06a2055c461500216afa7b755ddc3",
+      "original_sha256": "ed150456d1582e1c14d0fa6a64f2690a75c06a2055c461500216afa7b755ddc3",
+      "scope": "reference-only",
+      "source_git_blob": "6256684a88e3a60c0d334ce2034d8ace4a6d9669",
+      "source_mode": "100644",
+      "source_path": "scripts/render_chamber_map.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/scripts/sensitivity_sweep.py",
+      "exported_sha256": "b386e1cb2be20e01493430b8ae80edca47058d5e194eb469c3147730dd5cbb82",
+      "original_sha256": "b386e1cb2be20e01493430b8ae80edca47058d5e194eb469c3147730dd5cbb82",
+      "scope": "reference-only",
+      "source_git_blob": "2768aa82ea755d9afbcdef6dd3b5b9ae04959f4d",
+      "source_mode": "100644",
+      "source_path": "scripts/sensitivity_sweep.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "shared/__init__.py",
+      "exported_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scope": "reusable-source",
+      "source_git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "source_mode": "100644",
+      "source_path": "shared/__init__.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "shared/coverage_quality.py",
+      "exported_sha256": "0e4e20898880fc9d0ecca9868881de5e4c9082dbcea0ff8c55ce3d9879c070df",
+      "original_sha256": "0e4e20898880fc9d0ecca9868881de5e4c9082dbcea0ff8c55ce3d9879c070df",
+      "scope": "reusable-source",
+      "source_git_blob": "0f11f5e955addaeb5436a61234552830d4f27dc6",
+      "source_mode": "100644",
+      "source_path": "shared/coverage_quality.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "shared/coverage_rating.py",
+      "exported_sha256": "7567f158621b4f308f3e85a340c36baf283ad5f8afe97b140819d152602ac035",
+      "original_sha256": "7567f158621b4f308f3e85a340c36baf283ad5f8afe97b140819d152602ac035",
+      "scope": "reusable-source",
+      "source_git_blob": "9c9d4192e318acbace62bda8919560a118c31d21",
+      "source_mode": "100644",
+      "source_path": "shared/coverage_rating.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "shared/districts.py",
+      "exported_sha256": "8b62b6b3b1e5daff0e9fc2e2bbb65872ce0acd1ebef984f7182904154a4b9728",
+      "original_sha256": "8b62b6b3b1e5daff0e9fc2e2bbb65872ce0acd1ebef984f7182904154a4b9728",
+      "scope": "reusable-source",
+      "source_git_blob": "79841eafa7f1b4c223ae8313194a3ba970ca9607",
+      "source_mode": "100644",
+      "source_path": "shared/districts.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "shared/email_budget.py",
+      "exported_sha256": "885b340a6377e483eb085253b67f193f8e55b48d38e9489d0d1cde3ca3394bb2",
+      "original_sha256": "885b340a6377e483eb085253b67f193f8e55b48d38e9489d0d1cde3ca3394bb2",
+      "scope": "reusable-source",
+      "source_git_blob": "0f243ed9c170e40fc740d17d9285f9d0b7b81482",
+      "source_mode": "100644",
+      "source_path": "shared/email_budget.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "shared/env.py",
+      "exported_sha256": "e817e0f009d2b1139487dfad36bcfe03edf60606e7a0c38c422d30918bf062da",
+      "original_sha256": "e817e0f009d2b1139487dfad36bcfe03edf60606e7a0c38c422d30918bf062da",
+      "scope": "reusable-source",
+      "source_git_blob": "7714f386e715d792a828972a602c603a439d02ff",
+      "source_mode": "100644",
+      "source_path": "shared/env.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "shared/external_calls.py",
+      "exported_sha256": "37e73aa4cbbe4a4e8d60b8d418b9bc5795819752fd6be98040550eeb0702a55f",
+      "original_sha256": "37e73aa4cbbe4a4e8d60b8d418b9bc5795819752fd6be98040550eeb0702a55f",
+      "scope": "reusable-source",
+      "source_git_blob": "2c8f21bc6d409eef88d4ad5e064706e8233333e6",
+      "source_mode": "100644",
+      "source_path": "shared/external_calls.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "shared/gcp_api.py",
+      "exported_sha256": "1701789192c799bd3ccd1b337213a76a8ae6cd8e8fdbe83d5790c6fdac2cbe53",
+      "original_sha256": "1701789192c799bd3ccd1b337213a76a8ae6cd8e8fdbe83d5790c6fdac2cbe53",
+      "scope": "reusable-source",
+      "source_git_blob": "7c6d2eabb1a7f0099ab55500c710afeeb23427f8",
+      "source_mode": "100644",
+      "source_path": "shared/gcp_api.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "shared/gcp_env.py",
+      "exported_sha256": "2681539f27b5305553d0bbf7c3513be430279baafd022bfd3ad1cca57a90cd14",
+      "original_sha256": "2681539f27b5305553d0bbf7c3513be430279baafd022bfd3ad1cca57a90cd14",
+      "scope": "reusable-source",
+      "source_git_blob": "2f992297290f26532ac8f4dc8896ac2df97cbced",
+      "source_mode": "100644",
+      "source_path": "shared/gcp_env.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "shared/newsdata_quota.py",
+      "exported_sha256": "d301f0a7119e0f639488eca239af3d7bac4a80fa16967b1a50664ca245f8e569",
+      "original_sha256": "d301f0a7119e0f639488eca239af3d7bac4a80fa16967b1a50664ca245f8e569",
+      "scope": "reusable-source",
+      "source_git_blob": "ee3dc0dc11af3318aa6d7285cb3f1033ab22f547",
+      "source_mode": "100644",
+      "source_path": "shared/newsdata_quota.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "shared/publication_hashes.py",
+      "exported_sha256": "81f9dbb3af380f18a5ad2b5cc6c67c826ae4bc2f70a3bbe1ce6cd1cecd1b1ed3",
+      "original_sha256": "81f9dbb3af380f18a5ad2b5cc6c67c826ae4bc2f70a3bbe1ce6cd1cecd1b1ed3",
+      "scope": "reusable-source",
+      "source_git_blob": "6d9d30b2dc262e60d3b0ab45395d1652b0c55290",
+      "source_mode": "100644",
+      "source_path": "shared/publication_hashes.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "shared/publication_schedule.py",
+      "exported_sha256": "e1edb3dc0f8ae68ab940cc3db2d8560a7ac733b2b5290b060e39e880f0a892cf",
+      "original_sha256": "e1edb3dc0f8ae68ab940cc3db2d8560a7ac733b2b5290b060e39e880f0a892cf",
+      "scope": "reusable-source",
+      "source_git_blob": "31598b67777a860ee0085d0fb4e984ad0f7c27af",
+      "source_mode": "100644",
+      "source_path": "shared/publication_schedule.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "shared/race_roster.py",
+      "exported_sha256": "7dd837e0dee464d5024e8f67d919e529b5215bbe3e6d7bfc4123fb024d3e32f8",
+      "original_sha256": "7dd837e0dee464d5024e8f67d919e529b5215bbe3e6d7bfc4123fb024d3e32f8",
+      "scope": "reusable-source",
+      "source_git_blob": "57516497de17b5f7c6658f0dfafadcdbf5c9aad4",
+      "source_mode": "100644",
+      "source_path": "shared/race_roster.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "shared/race_scoring.py",
+      "exported_sha256": "3014101e8172d339446df635d6c93069255acf1b245b01b229552da75cfd3583",
+      "original_sha256": "3014101e8172d339446df635d6c93069255acf1b245b01b229552da75cfd3583",
+      "scope": "reusable-source",
+      "source_git_blob": "dec1fa78f0bb935206ca9ad589a08e94a48c733b",
+      "source_mode": "100644",
+      "source_path": "shared/race_scoring.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "shared/regions.py",
+      "exported_sha256": "069c92fee494600ea97ca7020e6e1b311dd157e11a2ec9679f17ac7569ce95da",
+      "original_sha256": "069c92fee494600ea97ca7020e6e1b311dd157e11a2ec9679f17ac7569ce95da",
+      "scope": "reusable-source",
+      "source_git_blob": "04dee1b2c4531d7e81292b7f002dd75564517258",
+      "source_mode": "100644",
+      "source_path": "shared/regions.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "shared/supabase_client.py",
+      "exported_sha256": "e5894581dbe86ef51ed4c5fca7a62651e59e265b7e921b36ed2dc63910d381fe",
+      "original_sha256": "e5894581dbe86ef51ed4c5fca7a62651e59e265b7e921b36ed2dc63910d381fe",
+      "scope": "reusable-source",
+      "source_git_blob": "2980defb1f99867d8de2cda7c88097987fa80eb7",
+      "source_mode": "100644",
+      "source_path": "shared/supabase_client.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "shared/supabase_rest.py",
+      "exported_sha256": "2ec7ac346789bf345b60d6cc6a35476ae9b6eb10b22cf347c547c3f95779ddd0",
+      "original_sha256": "2ec7ac346789bf345b60d6cc6a35476ae9b6eb10b22cf347c547c3f95779ddd0",
+      "scope": "reusable-source",
+      "source_git_blob": "bb4fbf1b8acf35f1862d1a24619ce02a369347bc",
+      "source_mode": "100644",
+      "source_path": "shared/supabase_rest.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "shared/tracing.py",
+      "exported_sha256": "59177b8b2076283b17e4a7a90e42dd1f6f761f459a0856a1ca3a56477813c265",
+      "original_sha256": "59177b8b2076283b17e4a7a90e42dd1f6f761f459a0856a1ca3a56477813c265",
+      "scope": "reusable-source",
+      "source_git_blob": "e996ec54030343eb0c24a85b68cb921024a1789e",
+      "source_mode": "100644",
+      "source_path": "shared/tracing.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "shared/us_attention.py",
+      "exported_sha256": "8cd390834156a60a3a0aa64e2de82cc85017d026e6e1052c99343982df091fe1",
+      "original_sha256": "8cd390834156a60a3a0aa64e2de82cc85017d026e6e1052c99343982df091fe1",
+      "scope": "reusable-source",
+      "source_git_blob": "5bdcd761afa64ab8fa53e6d9d436127e99725c1d",
+      "source_mode": "100644",
+      "source_path": "shared/us_attention.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260502183500_initial_schema.sql",
+      "exported_sha256": "493328aaddd505bbf8dfc38e883a1a3daf6b731f2e4f1ef2a837aa8e7517d36d",
+      "original_sha256": "493328aaddd505bbf8dfc38e883a1a3daf6b731f2e4f1ef2a837aa8e7517d36d",
+      "scope": "reference-only",
+      "source_git_blob": "922b842312ba2365e20980ae84b6fc1e72b95822",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260502183500_initial_schema.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260502195000_daily_runs_and_export_claims.sql",
+      "exported_sha256": "6ba9723ba27df1d6f4068b435c251cd0d7f7432c24b66f0963a59f0ec8f29524",
+      "original_sha256": "6ba9723ba27df1d6f4068b435c251cd0d7f7432c24b66f0963a59f0ec8f29524",
+      "scope": "reference-only",
+      "source_git_blob": "4b565923318aaa53c41cdec954953a17722fa69b",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260502195000_daily_runs_and_export_claims.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260502202000_allow_stale_export_claim_recovery.sql",
+      "exported_sha256": "4149b85b5371944900e65bb490438da76189696129cde0d23166d746b73abc0a",
+      "original_sha256": "4149b85b5371944900e65bb490438da76189696129cde0d23166d746b73abc0a",
+      "scope": "reference-only",
+      "source_git_blob": "0266b96ace6326b2660dbe8437ae65078f3d0d6e",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260502202000_allow_stale_export_claim_recovery.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260502213000_enable_rls_for_daily_runs.sql",
+      "exported_sha256": "07f6589682d8e5d2012f5f543c06721be622725aed21d3f3d1706c3e9e2c7cc0",
+      "original_sha256": "07f6589682d8e5d2012f5f543c06721be622725aed21d3f3d1706c3e9e2c7cc0",
+      "scope": "reference-only",
+      "source_git_blob": "65b72e4c123d28a5a950f8dd1e77c9822d309d5f",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260502213000_enable_rls_for_daily_runs.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260503162000_repair_missing_updated_at_columns.sql",
+      "exported_sha256": "c676f8b10c6dfed4e84d0213a59981f70267e199b3a89e3f6b0e7156ed4e4ecf",
+      "original_sha256": "c676f8b10c6dfed4e84d0213a59981f70267e199b3a89e3f6b0e7156ed4e4ecf",
+      "scope": "reference-only",
+      "source_git_blob": "b9f7fcb26613d03fddd6765cff58593328dd1d3a",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260503162000_repair_missing_updated_at_columns.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260503170000_add_source_contributions.sql",
+      "exported_sha256": "ea0c41ef5baae4c13557dd375daa8448def645866ae9c3893834282c21fd0c7d",
+      "original_sha256": "ea0c41ef5baae4c13557dd375daa8448def645866ae9c3893834282c21fd0c7d",
+      "scope": "reference-only",
+      "source_git_blob": "1f003633e3b0fb43449c2e345921cb551f8b9cce",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260503170000_add_source_contributions.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260503174500_allow_newsdata_source_contributions.sql",
+      "exported_sha256": "2f2068ba7c0fce3a14d2919e736c9a79a906cf95710c1faa64d61e7c482dedd7",
+      "original_sha256": "2f2068ba7c0fce3a14d2919e736c9a79a906cf95710c1faa64d61e7c482dedd7",
+      "scope": "reference-only",
+      "source_git_blob": "7955f62e19585a150dee0b66160ee6cca5920e96",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260503174500_allow_newsdata_source_contributions.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260507170000_add_region_runs_reconciler_state.sql",
+      "exported_sha256": "9497dbc0828c0dee1d793f975658040001295b8c047b5e011b8ce42468264bb8",
+      "original_sha256": "9497dbc0828c0dee1d793f975658040001295b8c047b5e011b8ce42468264bb8",
+      "scope": "reference-only",
+      "source_git_blob": "4285550972d35a02657adf22746aa338de061a2d",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260507170000_add_region_runs_reconciler_state.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260508093000_add_supporting_headlines_to_word_frequencies.sql",
+      "exported_sha256": "c6165023443e756aa71f5ea2a461bb34d1e4351f90d2dc7f9c67452177f8ec1c",
+      "original_sha256": "c6165023443e756aa71f5ea2a461bb34d1e4351f90d2dc7f9c67452177f8ec1c",
+      "scope": "reference-only",
+      "source_git_blob": "bcc6d1382566f239470e8fc5bd0f9b22900769f8",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260508093000_add_supporting_headlines_to_word_frequencies.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260511143000_add_email_delivery_tables.sql",
+      "exported_sha256": "abe9843289df72ca8f5ae868c7a06adda8de824998a1e97317abf1fdb962551c",
+      "original_sha256": "abe9843289df72ca8f5ae868c7a06adda8de824998a1e97317abf1fdb962551c",
+      "scope": "reference-only",
+      "source_git_blob": "80e79405a451658e780dda755326d952d7acb724",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260511143000_add_email_delivery_tables.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260513133000_lock_down_pipeline_tables.sql",
+      "exported_sha256": "6406cfe683f9fcd8399ac7f9d1d122d76d04ac98b22f34a2a64139906990670a",
+      "original_sha256": "6406cfe683f9fcd8399ac7f9d1d122d76d04ac98b22f34a2a64139906990670a",
+      "scope": "reference-only",
+      "source_git_blob": "292897dac405545fe125eaf74689a0b37b68e39c",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260513133000_lock_down_pipeline_tables.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260515140000_add_nlp_profile_columns.sql",
+      "exported_sha256": "f74eb8aed9cd5308d4618ebe2fb4547fde8973674e7801e94b75523328f8eed8",
+      "original_sha256": "f74eb8aed9cd5308d4618ebe2fb4547fde8973674e7801e94b75523328f8eed8",
+      "scope": "reference-only",
+      "source_git_blob": "e83b689ea6d490bb9d6d0845c9456ef257a38dd5",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260515140000_add_nlp_profile_columns.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260519193000_add_email_delivery_retry_fields.sql",
+      "exported_sha256": "02776810f26a69477d79925a212428a422d95d38fc0c67672e3b52531cfef7f0",
+      "original_sha256": "02776810f26a69477d79925a212428a422d95d38fc0c67672e3b52531cfef7f0",
+      "scope": "reference-only",
+      "source_git_blob": "482b986aa114bf0d79148459ded448641262ecb7",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260519193000_add_email_delivery_retry_fields.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260520094500_add_artifacts_table_and_bucket.sql",
+      "exported_sha256": "234a4697c57d1adf79ffb5f7bcc02746ec648fb178451ae6900bcceabe9eb636",
+      "original_sha256": "234a4697c57d1adf79ffb5f7bcc02746ec648fb178451ae6900bcceabe9eb636",
+      "scope": "reference-only",
+      "source_git_blob": "6c9238c4e90e9824ce7f35d9efd1500c0aa8bca9",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260520094500_add_artifacts_table_and_bucket.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260520113000_add_delivery_jobs.sql",
+      "exported_sha256": "c3ee84c52187209845dfc1c76325d4aaef8698150183fb253dbff5046edf9000",
+      "original_sha256": "c3ee84c52187209845dfc1c76325d4aaef8698150183fb253dbff5046edf9000",
+      "scope": "reference-only",
+      "source_git_blob": "33101538496d5f04b002c3c1a47b6f8af371e21a",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260520113000_add_delivery_jobs.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260520143000_add_subscriptions.sql",
+      "exported_sha256": "221acfc12ee54fceed06fe685b13268ded48a4b7203c0452f9dc67f4bc4a5b90",
+      "original_sha256": "406d7373d6dc6086b1276b202c196a25b44bc1b6cd28d00dc51772923c77e65f",
+      "scope": "reference-only",
+      "source_git_blob": "64e909516ec73e1df88909ab03f5596423450728",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260520143000_add_subscriptions.sql",
+      "transformations": [
+        {
+          "category": "omit_production_recipient_subscription_backfill",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260521111000_allow_gemini_source_contributions.sql",
+      "exported_sha256": "f0e0ce895045ddf3d73fac6ebfea3dbf008e727015929209e1279ca46f06e89c",
+      "original_sha256": "f0e0ce895045ddf3d73fac6ebfea3dbf008e727015929209e1279ca46f06e89c",
+      "scope": "reference-only",
+      "source_git_blob": "805635c5434bc1f75e57facf2c00319f7b0ca582",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260521111000_allow_gemini_source_contributions.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260628100000_add_atomic_stage_retry_claims.sql",
+      "exported_sha256": "28edb1776730ba3132780d70624c6f5b442ebbcb2123409bad505a393e9c2a4d",
+      "original_sha256": "28edb1776730ba3132780d70624c6f5b442ebbcb2123409bad505a393e9c2a4d",
+      "scope": "reference-only",
+      "source_git_blob": "6fe19d55cef33f067ed9ea17e52ef627d6aeb388",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260628100000_add_atomic_stage_retry_claims.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260701120000_add_party_syntheses.sql",
+      "exported_sha256": "13d1ff34d8f05eba1c4b1b8886cbcbb569c99ed87511e4440407753463b58739",
+      "original_sha256": "13d1ff34d8f05eba1c4b1b8886cbcbb569c99ed87511e4440407753463b58739",
+      "scope": "reference-only",
+      "source_git_blob": "e543bf0839ece973e8368b2b6bf4bc0a5fc85f13",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260701120000_add_party_syntheses.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260701130000_add_legislative_signals.sql",
+      "exported_sha256": "141d590e89ed3b4c63d7e91901669c18268e4e2640e70f21acc97921f47ccaf3",
+      "original_sha256": "141d590e89ed3b4c63d7e91901669c18268e4e2640e70f21acc97921f47ccaf3",
+      "scope": "reference-only",
+      "source_git_blob": "01c035a326731173c6510b423c78d09bb0f8b200",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260701130000_add_legislative_signals.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260702100000_add_audience_to_tables.sql",
+      "exported_sha256": "2a527fb275cf506b24cab26c6f2523b341272ecd630a633a9b34ae8758d9bc4e",
+      "original_sha256": "2a527fb275cf506b24cab26c6f2523b341272ecd630a633a9b34ae8758d9bc4e",
+      "scope": "reference-only",
+      "source_git_blob": "0d906019c8ee12d9fdc9d52b35311f0140866e43",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260702100000_add_audience_to_tables.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260703010000_reframe_congress_legislative_activity.sql",
+      "exported_sha256": "8008e0e6d732ff3cf598d256e3308a604507a773e98102ff935b634f36666870",
+      "original_sha256": "8008e0e6d732ff3cf598d256e3308a604507a773e98102ff935b634f36666870",
+      "scope": "reference-only",
+      "source_git_blob": "6ff396db170a4352a86470a6fca174399955cb3b",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260703010000_reframe_congress_legislative_activity.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260711090000_add_ad_spend_signals.sql",
+      "exported_sha256": "ba57d76b3c5ae6b310f53ac205ed35579dfb85dcf8e41557bed0155dc03de358",
+      "original_sha256": "ba57d76b3c5ae6b310f53ac205ed35579dfb85dcf8e41557bed0155dc03de358",
+      "scope": "reference-only",
+      "source_git_blob": "a5402cf87295abc0bf48285d8f03df742af76e7a",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260711090000_add_ad_spend_signals.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260813220000_allow_null_leaning_for_non_us.sql",
+      "exported_sha256": "7b53fd1a14cab10a4255c35fbabd6cedd85d09610e09bb90a220c2ac75803f61",
+      "original_sha256": "7b53fd1a14cab10a4255c35fbabd6cedd85d09610e09bb90a220c2ac75803f61",
+      "scope": "reference-only",
+      "source_git_blob": "48b8443921a3e0382041d176ab8b7ca0e65900b9",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260813220000_allow_null_leaning_for_non_us.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260817030000_add_term_metrics_to_word_frequencies.sql",
+      "exported_sha256": "2ff8f61d69940038e3a14ce552d246d1ef15071c6ef7537d1a1d186aade48703",
+      "original_sha256": "2ff8f61d69940038e3a14ce552d246d1ef15071c6ef7537d1a1d186aade48703",
+      "scope": "reference-only",
+      "source_git_blob": "58bc6d2b4e188a63c902808454268dcbb5dd4f1a",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260817030000_add_term_metrics_to_word_frequencies.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260829140500_add_scheduled_task_runs.sql",
+      "exported_sha256": "584f4c0c565b2d56d7ff0e0f51356ffbcfa52b6addb20048b6b4c1159e9ca87c",
+      "original_sha256": "584f4c0c565b2d56d7ff0e0f51356ffbcfa52b6addb20048b6b4c1159e9ca87c",
+      "scope": "reference-only",
+      "source_git_blob": "8665f98a2a28e3bd195ca9602543a393ba531355",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260829140500_add_scheduled_task_runs.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260831100000_add_topic_clusters_to_word_frequencies.sql",
+      "exported_sha256": "40929095240400c4fbc88dd2932a7fc3e9f85854e05a10fa9e0b87dc2a4412f7",
+      "original_sha256": "40929095240400c4fbc88dd2932a7fc3e9f85854e05a10fa9e0b87dc2a4412f7",
+      "scope": "reference-only",
+      "source_git_blob": "f0fdd82eba8d452da59c656731d8a144bbe0a2f1",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260831100000_add_topic_clusters_to_word_frequencies.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260831190000_add_us_attention_shadow_runs.sql",
+      "exported_sha256": "b378f3e47f92c4c80e7098a6192559f9d97fc0f04c5397f52ce4a26ce7b892b2",
+      "original_sha256": "b378f3e47f92c4c80e7098a6192559f9d97fc0f04c5397f52ce4a26ce7b892b2",
+      "scope": "reference-only",
+      "source_git_blob": "884e02a3c79358a717598455ff5406dc51c9618b",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260831190000_add_us_attention_shadow_runs.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260901171500_scope_email_deliveries_by_artifact.sql",
+      "exported_sha256": "13ac0c9c3673d5ddbe8f0ced5b637c96e588e682058c4811785d09b74341236e",
+      "original_sha256": "13ac0c9c3673d5ddbe8f0ced5b637c96e588e682058c4811785d09b74341236e",
+      "scope": "reference-only",
+      "source_git_blob": "6e0fec323247660725ab237d7984d63cf5ea9c28",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260901171500_scope_email_deliveries_by_artifact.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260919120000_add_race_board_tables.sql",
+      "exported_sha256": "aef60b993629f9a58bc96579ef7dde98e29d586f71c2ae4c37e6c7eac70655f6",
+      "original_sha256": "aef60b993629f9a58bc96579ef7dde98e29d586f71c2ae4c37e6c7eac70655f6",
+      "scope": "reference-only",
+      "source_git_blob": "6a88b57c002db1a025be1c5437a282b33053def7",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260919120000_add_race_board_tables.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260919130000_add_subscriber_profiles.sql",
+      "exported_sha256": "4fcf92c79eef1ca41448ae828660650df0db4fcca76c9df3ddb80080d7ffd120",
+      "original_sha256": "4fcf92c79eef1ca41448ae828660650df0db4fcca76c9df3ddb80080d7ffd120",
+      "scope": "reference-only",
+      "source_git_blob": "ce8fdbe3dd15e934aa42872f3b7f402409063b12",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260919130000_add_subscriber_profiles.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260928120000_add_newsdata_quota.sql",
+      "exported_sha256": "df9ee38207d37479e6552d953a57dbadaa12c1a560103c099ac1bbceed54cf64",
+      "original_sha256": "df9ee38207d37479e6552d953a57dbadaa12c1a560103c099ac1bbceed54cf64",
+      "scope": "reference-only",
+      "source_git_blob": "5f4e83fff9c46ae8a65f450734d6583c2bc592f5",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260928120000_add_newsdata_quota.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260928130000_add_email_recipient_budget.sql",
+      "exported_sha256": "0ca3d88b3fc49976d421f1aa7349276fe1147d8a7308ea58905c942eea6100d0",
+      "original_sha256": "0ca3d88b3fc49976d421f1aa7349276fe1147d8a7308ea58905c942eea6100d0",
+      "scope": "reference-only",
+      "source_git_blob": "f1eca9258c0f61a97cf94d056033fd829f39f0b6",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260928130000_add_email_recipient_budget.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260928140000_add_region_gather_claim.sql",
+      "exported_sha256": "0520617e805d3d6852e0bff70a0d351fdf2450fe0e903b318dcdea5c8ff2f8c3",
+      "original_sha256": "0520617e805d3d6852e0bff70a0d351fdf2450fe0e903b318dcdea5c8ff2f8c3",
+      "scope": "reference-only",
+      "source_git_blob": "cad64f506c678ce0a0eee2451e11a96bc5294098",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260928140000_add_region_gather_claim.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "reference/supabase/migrations/20260930120000_add_district_runs.sql",
+      "exported_sha256": "49e39896677d50ab5a8b1d5f60b2b7af4bb121d42c46f111ffa526d8f20e5f1e",
+      "original_sha256": "49e39896677d50ab5a8b1d5f60b2b7af4bb121d42c46f111ffa526d8f20e5f1e",
+      "scope": "reference-only",
+      "source_git_blob": "26dad8f605612f0bc90edbc28ea2a6bea1479dd3",
+      "source_mode": "100644",
+      "source_path": "supabase/migrations/20260930120000_add_district_runs.sql",
+      "transformations": []
+    },
+    {
+      "exported_path": "tests/test_coverage_quality.py",
+      "exported_sha256": "bae9b9489a8791e52820f643c3df8015dabbc7883640d9fbefeb3d9adcc8b2ce",
+      "original_sha256": "bae9b9489a8791e52820f643c3df8015dabbc7883640d9fbefeb3d9adcc8b2ce",
+      "scope": "selected-tests",
+      "source_git_blob": "b8550b1004e3269d4d1ea0027e3cf45822b359b0",
+      "source_mode": "100644",
+      "source_path": "tests/test_coverage_quality.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "tests/test_coverage_rating.py",
+      "exported_sha256": "350d3e87c1dd9bb2f133639879525479be004e475aba4b7240dc6b83d555a2a1",
+      "original_sha256": "350d3e87c1dd9bb2f133639879525479be004e475aba4b7240dc6b83d555a2a1",
+      "scope": "selected-tests",
+      "source_git_blob": "0197a66dbd724f9903dd83fc57382cc5e051f63a",
+      "source_mode": "100644",
+      "source_path": "tests/test_coverage_rating.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "tests/test_export_race_board_data.py",
+      "exported_sha256": "6c3308f2b823c48d432e34a9c3ad6ceb1d79af8d1cf87d02ca51d25da3dd3c43",
+      "original_sha256": "bec34652a8223a5bb3d0abbc87d80c5115a367900f0f1041bbd838388e670b18",
+      "scope": "selected-tests",
+      "source_git_blob": "8e8598c940d8f850fd747ec450aac4e7c7d3109f",
+      "source_mode": "100644",
+      "source_path": "tests/test_export_race_board_data.py",
+      "transformations": [
+        {
+          "category": "omit_test_requiring_unexported_external_map_assets",
+          "occurrences": 1,
+          "test": "test_export_chamber_maps_writes_the_two_the_email_links"
+        }
+      ]
+    },
+    {
+      "exported_path": "tests/test_external_calls.py",
+      "exported_sha256": "a515996b1424ac2e4d14f15f5695e71df3f8ccb2393cd2f0410a04cb96928fd3",
+      "original_sha256": "a515996b1424ac2e4d14f15f5695e71df3f8ccb2393cd2f0410a04cb96928fd3",
+      "scope": "selected-tests",
+      "source_git_blob": "9f1b39f1420e65499f265a144f1c3025b72a1c14",
+      "source_mode": "100644",
+      "source_path": "tests/test_external_calls.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "tests/test_generate_board_email.py",
+      "exported_sha256": "079cbe3cda5fe691aac7ef5e77b61abebfb81dc18a44b19a60ba74dbf8f05323",
+      "original_sha256": "079cbe3cda5fe691aac7ef5e77b61abebfb81dc18a44b19a60ba74dbf8f05323",
+      "scope": "selected-tests",
+      "source_git_blob": "925742720d6b9c340b104b6262e461eeb9b0af7d",
+      "source_mode": "100644",
+      "source_path": "tests/test_generate_board_email.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "tests/test_publication_schedule.py",
+      "exported_sha256": "c61a478917aa386d735ede27b9309a13287fdc847318f8764b125d9e955c99a3",
+      "original_sha256": "c61a478917aa386d735ede27b9309a13287fdc847318f8764b125d9e955c99a3",
+      "scope": "selected-tests",
+      "source_git_blob": "9d7f183a4d5c691385100f38bf5f9780efb11ac0",
+      "source_mode": "100644",
+      "source_path": "tests/test_publication_schedule.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "tests/test_regions.py",
+      "exported_sha256": "59d08b37568c2b6261b426f943cde3d20fb34d4d2992bbe8855e76bb7220118a",
+      "original_sha256": "59d08b37568c2b6261b426f943cde3d20fb34d4d2992bbe8855e76bb7220118a",
+      "scope": "selected-tests",
+      "source_git_blob": "3c173e9c26ba43988dfbd81b6857c823318de3a7",
+      "source_mode": "100644",
+      "source_path": "tests/test_regions.py",
+      "transformations": []
+    },
+    {
+      "exported_path": "tests/test_supabase_rest.py",
+      "exported_sha256": "49b826a82361aa40ec8636ac2d79dde2d4c5e5d6eafeb619efc6536018dffbaa",
+      "original_sha256": "41fad06866a10bd40e6272f092f1c6ff9a3ca25f4981b2cae7a6cd80d46e5c01",
+      "scope": "selected-tests",
+      "source_git_blob": "cba1c1b259b0ed280b37af05f3acf1b17b34e328",
+      "source_mode": "100644",
+      "source_path": "tests/test_supabase_rest.py",
+      "transformations": [
+        {
+          "category": "deployment_resource_name_to_test_project",
+          "occurrences": 2
+        }
+      ]
+    }
+  ],
+  "generated_files": [
+    {
+      "category": "candidate_local_configuration",
+      "exported_path": ".gitignore",
+      "exported_sha256": "fad06637b4b42ccf9379f12ef419cb2a2e2101097616624eb176b8e1083fbddb"
+    },
+    {
+      "category": "candidate_local_configuration",
+      "exported_path": "pyproject.toml",
+      "exported_sha256": "0a2d6a7a929059daba08d88278f98f3a2d7f78b7e5e45549ad6debe25fc9c79a"
+    }
+  ],
+  "hash_algorithm": "sha256",
+  "ownership_policy": "Exporter never overwrites differing files, including prior owned exports; sibling docs/demo remain untouched.",
+  "release_kind": "production-derived source snapshot plus separately authored offline demonstration; not a deployment",
+  "schema_version": 1,
+  "source_commit": "71070bb96a6f0dd5da378f06a11f9eb399d9a0c1",
+  "source_files": 125,
+  "source_manifest_scope": "Only source export and listed generated configuration; separately authored demo/docs/security/CI are not source-derived exports."
+}

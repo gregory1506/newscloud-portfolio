@@ -1,0 +1,33 @@
+# Evolution: origin through October 23, 2026
+
+[Case study](case-study.md) · [Evidence notes](evidence.md)
+
+This is a reconstructed chronology, not imported private Git history. Dates below distinguish plans, implemented code and recorded production outcomes. Historical observations come from the dated source record; the public release does not expose raw operational logs or private memos.
+
+| Period | What changed | Status and lesson |
+|---|---|---|
+| **February — owner account** | The owner dates the idea's origin to February. | No February–April artifact was located in the inspected sources. Do not backdate repository history. [E01](evidence.md#e01-origin-and-provenance) |
+| **May 1–2 — verified Git** | Initial serverless architecture, orchestration, storage, scoring and an idempotent export finalizer appear in the repository history. | Earliest verified main-repository commit: `b693f18`, May 1. A commit records implementation history, not proof that every path was deployed successfully. [E02](evidence.md#e02-may-runtime-and-delivery) |
+| **May — operating the first pipeline** | Regional source quality, state-aware brief presentation, delivery retries and durable delivery jobs became recurring concerns. | Core completion and successful publication were already separate: email-service and permission failures could block publication after regional processing worked. |
+| **June — reliability and reader comprehension** | Freshness checks, date-aware archives, supporting coverage and plain-language metric labels displaced a map-first analytics presentation. Atomic retry claims replaced non-atomic retry scheduling. | The June retry rollout also exposed a historical-replay hazard; automatic recovery was narrowed to the current run. [E03](evidence.md#e03-june-reconciliation-and-reader-quality) |
+| **July — two party-framed products** | Two editorial lanes shared a factual dataset and added legislative context. Code merged July 2; unattended delivery was recorded July 11–12. | July 4–9 synthesis without artifacts or sends had to be recovered. Code-complete did not mean operationally complete. Both lanes were later retired. [E04](evidence.md#e04-party-lanes-and-the-delivery-gap) |
+| **July 21–27 — validity work** | A six-event backtest and a sixteen-combination sensitivity sweep tested the early predictive ambition. | Predictive validity was not established. A generated optimistic headline did not outweigh the event table or the weak negative-control design. [E05–E06](evidence.md#e05-july-backtest) |
+| **August — finance, evidence and regional topics** | FEC outside-spending ingestion and digital-placement estimates exposed credential wiring and primary-election attribution bugs. Supporting links were restored through the editorial path. TT/UK topic clustering was held and revised after live evidence review. | Real-data replay and title-level review found errors that plausible output concealed. Digital estimates later remained reference-only, not rating inputs. [E08–E09](evidence.md#e08-finance-integration) |
+| **August–September — publication migration** | R2 took over object writes. A GCP publisher moved from artifact-only/shadow work toward active ownership as CI-owned runtime failures accumulated. | Shadow parity preceded cutover; moving writes did not finish old-storage cleanup. [E10](evidence.md#e10-publication-ownership), [E15](evidence.md#e15-storage-quota-outage) |
+| **September 19–24 — narrower product** | Race Board direction locked September 19; production cutover recorded September 20. Party-lane and legacy battleground paths were removed, with the party subsystem and cloud resources retired by September 23. | Coverage and public finance became the stated product. September 24 interpretation explicitly retired prediction and acknowledged the limits of the July study. [E11](evidence.md#e11-descriptive-race-board) |
+| **Late September — the limits become operational** | District sourcing was thin, provider credits were competed away, duplicate delivery amplified work, and legacy storage quota blocked the project APIs. | Claims, durable quota reservation, bounded redelivery and explicit coverage audits contained failure; they did not solve district evidence scarcity. [E12–E16](evidence.md#e12-house-coverage-limit) |
+| **October 2–9 — postconditions, not green jobs** | Pruning learned to wait for terminal operations. Cloud Tasks paced regional gathering. The board removed missing inputs from band tallies and email spotlights. Shadow-image staging was corrected after a silent no-output run. | The recorded short-window pacing improvement and tally correction are engineering evidence, not proof of predictive utility or sustained demand. [E14](evidence.md#e14-paced-dispatch-observation), [E17–E20](evidence.md#e17-silent-pruning-success) |
+| **October 23 — wind-down snapshot** | Publication changed to every two calendar days, anchored October 23; off-days skipped edition creation while maintenance stayed active. | Off-day behavior and read-only audits were recorded. The next scheduled edition was not proven by those checks. Snapshot ends at `71070bb`. [E21](evidence.md#e21-october-23-wind-down) |
+
+## What is not a shipped feature
+
+- **Election prediction:** not validated and explicitly retired as a product claim. The band calculator is descriptive, not a forecasting engine.
+- **NYT replacement ground truth:** a design and API investigation, rejected before implementation because the source overlapped with gathered inputs.
+- **Agentic advisory layer:** proposed research direction, not evidence of deployed autonomous decision-making or a real advisory relationship.
+- **U.S. community-attention expansion:** prototype and later bounded U.S.-national shadow work. The October 9 failure and staging repair are documented; no inspected final acceptance report establishes a completed successful pilot by October 23.
+- **Post-election calibration:** a retrospective limitations audit intended after the November election, not a result available in this October snapshot.
+- **Commercial scale:** signup routes and customer-development plans existed; sustained paid demand and product-market fit are not established.
+
+## What survives in the portfolio release
+
+The production-derived rating/export/email core, selected cloud reference source, SQL migrations and a synthetic runnable demo. Retired party code is not resurrected to make the project look larger. Production data, private history, research contacts, live workflows and third-party map/news assets are not needed to understand the engineering decisions.

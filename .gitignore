@@ -1,0 +1,10 @@
+# Local demonstration output and Python caches
+demo-output/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.coverage
+htmlcov/
+.env
+.env.*

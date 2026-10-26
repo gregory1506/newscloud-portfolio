@@ -1,0 +1,68 @@
+{
+  "notice": "SYNTHETIC SAMPLE — all candidates, headlines, sources, money and measurements are authored fiction. EX and QZ are example identifiers, not actual states. No electoral prediction.",
+  "prior_date": "2026-10-19",
+  "date": "2026-10-22",
+  "races": [
+    {
+      "race_id": "sample-ex-senate", "chamber": "senate", "state": "US-EX", "district": null, "incumbent_party": "OPEN", "seat_status": "open",
+      "scenario": "Monitored input with a prior-edition transition",
+      "inputs": {"leaning_score": 3.5, "source_count": 3, "dem_money": 50000, "rep_money": 50000, "fec_coverage": 1},
+      "prior_inputs": {"leaning_score": 1.5, "source_count": 3, "dem_money": 50000, "rep_money": 50000, "fec_coverage": 1},
+      "issue_mix": {"public_transit": 0.7, "housing": 0.3},
+      "candidates": [
+        {"candidate_name": "Mira Alder (fictional)", "party": "D", "ie_support_7d": 50000, "ie_oppose_7d": 0},
+        {"candidate_name": "Rowan Vale (fictional)", "party": "R", "ie_support_7d": 50000, "ie_oppose_7d": 0}
+      ],
+      "evidence": [
+        {"id": "transit-forum", "title": "Sample: Alder and Vale discuss a fictional evening-bus proposal", "source_name": "Imaginary Civic Ledger", "text": "Authored demonstration text, not a news excerpt. In this invented scenario, Mira Alder and Rowan Vale offer different approaches to an evening-bus timetable. The numeric leaning inputs were chosen directly by the fixture author; this text was not classified or scored."},
+        {"id": "station-workshop", "title": "Sample: mock station workshop invites two invented campaigns", "source_name": "Fictional District Notebook", "text": "Authored demonstration text. A fictional workshop compares two proposed station layouts. It exists only to exercise evidence links and the production evidence sanitizer, not to document a real event."},
+        {"id": "route-budget", "title": "Sample: invented route-budget discussion closes the fixture edition", "source_name": "Example Public Record", "text": "Authored demonstration text. A fictional budget discussion rounds out this three-source fixture. Source breadth and money are deliberately supplied inputs, not collected measurements."}
+      ]
+    },
+    {
+      "race_id": "sample-qz-senate", "chamber": "senate", "state": "US-QZ", "district": null, "incumbent_party": "R", "seat_status": "incumbent",
+      "scenario": "No coverage or finance inputs; incumbency alone is not monitoring",
+      "inputs": {"leaning_score": null, "source_count": 0, "dem_money": null, "rep_money": null, "fec_coverage": 0},
+      "issue_mix": {}, "candidates": [], "evidence": []
+    },
+    {
+      "race_id": "sample-ex-house-01", "chamber": "house", "state": "US-EX", "district": 1, "incumbent_party": null, "seat_status": "unknown",
+      "scenario": "Thin but monitored: two sources, no finance or incumbency input",
+      "inputs": {"leaning_score": 3.0, "source_count": 2, "dem_money": null, "rep_money": null, "fec_coverage": 0},
+      "issue_mix": {"housing": 1},
+      "candidates": [
+        {"candidate_name": "Tessa Fen (fictional)", "party": "D", "ie_support_7d": null, "ie_oppose_7d": null},
+        {"candidate_name": "Orin Wren (fictional)", "party": "R", "ie_support_7d": null, "ie_oppose_7d": null}
+      ],
+      "evidence": [
+        {"id": "housing-roundtable", "title": "Sample: Fen and Wren attend an invented housing roundtable", "source_name": "Fictional District Notebook", "text": "Authored demonstration text, not reporting. The invented roundtable supplies a readable evidence example. Two fixture sources are sufficient for the production monitoring gate, but incomplete inputs still produce low confidence."},
+        {"id": "planning-note", "title": "Sample: imaginary planning note compares two proposals", "source_name": "Example Public Record", "text": "Authored demonstration text. This second fictional source illustrates limited breadth. No language model or news pipeline runs when the demo is built."}
+      ]
+    },
+    {
+      "race_id": "sample-qz-house-02", "chamber": "house", "state": "US-QZ", "district": 2, "incumbent_party": null, "seat_status": "unknown",
+      "scenario": "One source is below the monitoring gate, not the same as no inputs",
+      "inputs": {"leaning_score": 2.0, "source_count": 1, "dem_money": null, "rep_money": null, "fec_coverage": 0},
+      "issue_mix": {"parks": 1}, "candidates": [],
+      "evidence": [
+        {"id": "park-note", "title": "Sample: a single invented park-budget note", "source_name": "Imaginary Civic Ledger", "text": "Authored demonstration text. This fixture intentionally has only one source and no finance input. The production exporter excludes it from monitored band tallies even though an input exists."}
+      ]
+    },
+    {
+      "race_id": "sample-ex-governor", "chamber": "governor", "state": "US-EX", "district": null, "incumbent_party": "OPEN", "seat_status": "open",
+      "scenario": "Finance-only monitored input, with no coverage sources",
+      "inputs": {"leaning_score": null, "source_count": 0, "dem_money": 90000, "rep_money": 30000, "fec_coverage": 1},
+      "issue_mix": {},
+      "candidates": [
+        {"candidate_name": "Lina Moss (fictional)", "party": "D", "ie_support_7d": 90000, "ie_oppose_7d": 0},
+        {"candidate_name": "Emil Reed (fictional)", "party": "R", "ie_support_7d": 30000, "ie_oppose_7d": 0}
+      ], "evidence": []
+    },
+    {
+      "race_id": "sample-qz-governor", "chamber": "governor", "state": "US-QZ", "district": null, "incumbent_party": null, "seat_status": "unknown",
+      "scenario": "No inputs at all",
+      "inputs": {"leaning_score": null, "source_count": 0, "dem_money": null, "rep_money": null, "fec_coverage": 0},
+      "issue_mix": {}, "candidates": [], "evidence": []
+    }
+  ]
+}

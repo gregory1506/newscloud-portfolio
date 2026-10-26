@@ -1,0 +1,6 @@
+functions-framework==3.10.1
+supabase>=2.15.0
+google-cloud-pubsub==2.*
+opentelemetry-api>=1.27
+opentelemetry-sdk>=1.27
+opentelemetry-exporter-gcp-trace>=1.7

@@ -1,0 +1,6 @@
+boto3==1.40.61
+google-auth==2.40.3
+google-cloud-storage==3.4.0
+supabase==2.18.1
+yt-dlp==2026.08.19
+Pillow==11.2.1
