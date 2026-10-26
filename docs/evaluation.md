@@ -53,6 +53,8 @@ The export verifier checked **128 recorded hashes**, enforced the source allowli
 
 The retained screenshot is from the synthetic local preview. Its PNG contains only image/header/end chunks, with no text or EXIF metadata. New CI is read-only verification; it was inspected locally, not executed on a public repository. Licensing and publication authorization remain independent release gates.
 
+The same 131-test suite and actual `-S` demo command also passed from a fresh, non-hardlinked Git clone with an empty environment and empty home. [Exact revision, commands, observations and limits](verification.md).
+
 ## Three different meanings of success
 
 | Layer | Useful evidence | Misleading substitute |
