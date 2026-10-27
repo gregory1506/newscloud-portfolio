@@ -39,11 +39,11 @@ env -i PATH=/usr/bin:/bin HOME="$EMPTY_HOME" PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 "$
 
 These commands were exercised from the fresh clone, using a dedicated empty home and the separate test environment. Test networking denial is implemented in the cold-import regression; the CLI invocation was not enclosed in an OS-level network namespace. The demo does not call provider code, and this record does not claim to have exercised cloud orchestration offline.
 
-## Not verified or authorized here
+## Boundaries of the original preparation checks
 
-- No public GitHub workflow execution, remote repository creation, push or deployment.
+- The original local preparation did not execute a public GitHub workflow, create a remote repository, push or deploy.
 - No live credential validity, database migration run, provider response, email send or production behavior change.
 - No election prediction, scientific reproduction on the original private dataset, commercial adoption or completed attention-shadow pilot.
-- No license grant or clearance of excluded maps/news/assets. Owner licensing and publication authorization remain required.
+- At preparation time no license grant had been selected. The owner subsequently authorized public release and chose [MIT](../LICENSE); this does not clear excluded maps/news/assets or change the scope of the original checks.
 
 Secret scanners and static reviews have false negatives. Re-scan the exact proposed public tree and its new history after any further edits; retain detailed reports privately rather than publishing source operational logs.

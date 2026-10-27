@@ -54,4 +54,4 @@ The October 23 source records an every-other-day publication wind-down, not a sc
 
 The runnable surface is `demo/`, backed by retained modules in `shared/` and `scripts/`. `reference/` contains cloud implementation for inspection, not instructions to deploy it. Production credentials, recipient records, private research, original news excerpts and external map assets are excluded.
 
-The candidate's recorded checks are separate from historical production verification; see [evaluation](docs/evaluation.md). Public release remains subject to the owner's licensing/publication decision and the [security](SECURITY.md)/[rights](RIGHTS.md) review. No license grant should be inferred from access to this preparation copy.
+Released under the [MIT License](LICENSE). The recorded candidate checks are separate from historical production verification; see [evaluation](docs/evaluation.md). The [security](SECURITY.md) and [rights](RIGHTS.md) documents explain the release boundary, excluded assets and review limitations.

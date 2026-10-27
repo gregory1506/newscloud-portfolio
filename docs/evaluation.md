@@ -51,7 +51,7 @@ The actual CLI generated the board, race details, local evidence pages, JSON and
 
 The export verifier checked **128 recorded hashes**, enforced the source allowlist and checked local documentation paths. A deliberately unlisted source file reproduced a verifier gap; the corrected verifier rejected it, and the probe was removed. Gitleaks 8.30.1 reported no findings in the scanned candidate directory or the separately scanned original history (775 commits). Static privacy review found no remaining concrete production authority identifiers, private contacts or embedded credentials in the selected source. These are bounded checks, not a guarantee of secret absence, legal clearance or production security.
 
-The retained screenshot is from the synthetic local preview. Its PNG contains only image/header/end chunks, with no text or EXIF metadata. New CI is read-only verification; it was inspected locally, not executed on a public repository. Licensing and publication authorization remain independent release gates.
+The retained screenshot is from the synthetic local preview. Its PNG contains only image/header/end chunks, with no text or EXIF metadata. New CI is read-only verification; the October 26 preparation checks were local, not public Actions runs. The owner subsequently authorized public release under the [MIT License](../LICENSE); excluded third-party assets remain outside that grant.
 
 The same 131-test suite and actual `-S` demo command also passed from a fresh, non-hardlinked Git clone with an empty environment and empty home. [Exact revision, commands, observations and limits](verification.md).
 

@@ -1,8 +1,8 @@
 # Security and publication boundary
 
-This is a local portfolio release candidate, not a production deployment and not
-yet an approved public release. It contains a runnable offline example and
-sanitized source for review. Publication requires the owner's explicit approval.
+This is a public portfolio source snapshot, not a production deployment.
+It contains a runnable offline example and sanitized source for review.
+Public release and the MIT license were explicitly authorized by the owner.
 
 ## Safe default
 
@@ -50,10 +50,10 @@ agree on revocation/rotation; deleting a committed value alone is not remediatio
 
 ## Reporting
 
-During private review, report findings directly to the project owner without
-including credential values or subscriber information. No public vulnerability
-reporting channel has been established because this candidate is not published.
-Do not open a public issue containing sensitive material.
+Use [GitHub private vulnerability reporting](https://github.com/gregory1506/newscloud-portfolio/security/advisories/new)
+to report findings privately. Provide a minimal reproduction without credential
+values or subscriber information. Do not open a public issue containing sensitive
+material. This repository does not authorize testing the production service.
 
 The verification record describes checks actually performed and their limits.
 It is not a claim that the production service or its full history is secure.

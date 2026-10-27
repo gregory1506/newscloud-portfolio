@@ -1,16 +1,16 @@
 # Rights and third-party provenance
 
-**Publication hold: a project-wide code license has not been selected.**
-The private source snapshot did not contain a root project license. This
-preparation does not silently apply MIT, Apache-2.0 or another grant to existing
-work. The owner must confirm ownership and choose the terms before a public
-release. Until then this is a private review candidate, not an open-source release.
+The owner authorized public release and selected the [MIT License](LICENSE)
+for the included NewsCloud software and associated documentation. The original
+private snapshot had no root license; this grant is a deliberate release decision,
+not an inference from an earlier public deployment or a dependency's license.
+Third-party dependencies retain their own terms, and excluded assets are not licensed here.
 
 ## Included material
 
 | Material | Provenance and treatment |
 |---|---|
-| Production-derived Python and SQL | Selected from the private NewsCloud snapshot recorded in `SOURCE_MANIFEST.json`; exact source/export hashes and transformations are recorded. Owner authorization for public distribution remains a release gate. |
+| Production-derived Python and SQL | Selected from the private NewsCloud snapshot recorded in `SOURCE_MANIFEST.json`; exact source/export hashes and transformations are recorded. Public distribution under MIT was authorized by the owner. |
 | Synthetic demonstration | Written for this candidate. Financial amounts, coverage observations, candidates and headlines are invented, not copied from a news service, actual filing or subscriber record. State/chamber labels are illustrative and do not turn the fixture into election evidence. |
 | Case studies and evidence summaries | Written from dated engineering records. Aggregate measurements are explicitly scoped; private raw logs, research and contact records are not reproduced. |
 | Demo presentation and screenshots | Candidate-authored presentation and screenshots of the synthetic local demo. They are not screenshots of a real election result or evidence of product adoption. |
@@ -31,8 +31,8 @@ release. Until then this is a private review candidate, not an open-source relea
 
 ## Release decision
 
-Choose a code license only after confirming the intended grant and ownership.
-Keep any necessary third-party notices with the associated files. If a real
+Keep necessary third-party notices with the associated files. The MIT grant does
+not establish rights to material that is not owned or included. If a real
 screenshot, map or dataset is added later, record its source, version/date,
 license or permission, attribution requirements and public-use decision before
 including it. A public URL, a successful download, or previous public deployment

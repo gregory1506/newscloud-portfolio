@@ -3,8 +3,8 @@
 ## A new history, not a rewritten past
 
 This candidate is derived from private NewsCloud source revision `71070bb`,
-recorded on 2026-10-23. It is prepared as a standalone local repository with a
-new history, no production remote and no imported production Git objects.
+recorded on 2026-10-23. It was prepared as a standalone repository for public release
+with a new history, no production remote and no imported production Git objects.
 Original commit dates are described as evidence, never recreated with backdated
 commits. This snapshot is not an assertion about current production health.
 
@@ -55,6 +55,7 @@ supporting revisions. Raw work logs, original operational reports and subscriber
 records are intentionally not published. Historical measurements are not current
 uptime, throughput, audience or financial claims.
 
-[Rights](RIGHTS.md) and [security](SECURITY.md) remain separate release gates.
-An allowlist, a manifest and a clean secret scan do not establish a license,
-scientific validity, privacy compliance, or absence of every security defect.
+The owner authorized public release under the [MIT License](LICENSE).
+[Rights](RIGHTS.md) and [security](SECURITY.md) document the remaining boundaries.
+An allowlist, a manifest and a clean secret scan do not establish scientific
+validity, privacy compliance, or absence of every security defect.
