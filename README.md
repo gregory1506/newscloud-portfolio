@@ -97,7 +97,7 @@ The important design choices are in the ownership rules:
 
 ## Project history and my role
 
-**Built and operated by Gregory Ollivierre, with AI assistance.** I set the product direction and authorized operational decisions; AI tools assisted architecture, implementation, investigation, research and critique. This is an owner-directed project, not a claim of unaided authorship or a staffed engineering team.
+Built through iterative development, structured review and production feedback. I led product direction and operational decisions—from addressing reliability issues to narrowing the product when the evidence did not support its original ambition.
 
 The idea dates to **February 2026 in my account**; the earliest verified main-repository commit is **May 1**. The public source snapshot ends on **October 23, 2026**. Its fresh public Git history is a release history, not a reconstruction of earlier commits.
 
