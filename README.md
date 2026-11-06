@@ -4,7 +4,9 @@
 
 [![Verify offline portfolio](https://github.com/gregory1506/newscloud-portfolio/actions/workflows/verify.yml/badge.svg)](https://github.com/gregory1506/newscloud-portfolio/actions/workflows/verify.yml)
 
-[Run the demo](#run-it-locally) · [Engineering results](#engineering-results) · [Architecture](#architecture) · [Case study](docs/case-study.md) · [MIT license](LICENSE)
+> **Status: archived 2026-11-06.** NewsCloud ran from May 1 to November 6, 2026, published its final edition three days after the U.S. midterms, and was then shut down. Read the **[send-off page](https://newscloud-dashboard.pages.dev/farewell/)** or browse the **[archived final board](https://newscloud-dashboard.pages.dev/board/)**. Nothing publishes or sends anymore; this repository is the finished engineering record. [Retrospective](docs/retrospective.md)
+
+[Run the demo](#run-it-locally) · [Outcome](#outcome) · [Journey](#journey) · [Engineering results](#engineering-results) · [Architecture](#architecture) · [Retrospective](docs/retrospective.md) · [Case study](docs/case-study.md) · [MIT license](LICENSE)
 
 I built and operated NewsCloud to turn regional reporting into a recurring view of what outlets were covering, with evidence readers could inspect. It grew from news gathering, word clouds and language scoring into a U.S. **Race Board** combining monitored coverage with public campaign finance, race-detail pages and an email edition.
 
@@ -15,6 +17,26 @@ This repository makes the work inspectable: production-derived Python and SQL, a
 ![Synthetic NewsCloud demonstration showing coverage, missing inputs and an actual calculated band transition](docs/assets/synthetic-board.png)
 
 *The screenshot is an authored, synthetic demonstration—not live reporting or a historical production capture.*
+
+## Outcome
+
+Over its lifetime the pipeline recorded **182 runs (151 published)**, **9,469 region-days**, **48,653 source pulls from 366 sources** and **21,887 race snapshots across 43 board editions** (production record read November 6, 2026; activity counts, not readership or accuracy). [E25](docs/evidence.md#e25-lifetime-totals-at-shutdown)
+
+After the election I compared the final board with AP race calls as of November 6, 18:36 UTC (unofficial). Of **145** monitored races with a leaning band and a called D/R winner, the band's side matched the winner in **104 (72%)**; a naive “the seat-holder keeps it” rule matched **101 (70%)** on the same races. Of **50** monitored seats that flipped, **23** leaned toward the eventual winner, **9** were Tossup and **18** leaned the wrong way. [E26](docs/evidence.md#e26-board-versus-unofficial-results)
+
+**That is not a forecast scorecard.** Coverage Rating bands are descriptive coverage signals, not predictions. The margin over the baseline is small, the monitored subset is non-random, and the counts are unofficial. The July validity sprint found 10/10 negative-control false positives; nothing here overturns that.
+
+## Journey
+
+- **May:** serverless word clouds for 53 regions; per-region reconciliation; a battleground email brief.
+- **June:** static dashboards on a CDN with no live database reads; atomic retry claims.
+- **July:** party-lane editions and a 30-day validity sprint with a recorded null result.
+- **August:** U.K. and Trinidad & Tobago sites; runtime moved to GCP and object storage to R2.
+- **September:** pivot to the Race Board; storage-quota outage; free-tier hardening and paced dispatch.
+- **October:** every-other-day wind-down from October 23; this public portfolio repository.
+- **November:** election-day edition (November 3), final edition and shutdown (November 6). Functions, jobs, topics, schedulers and alerts were deleted; the database and static archive sites remain as the record. [E27](docs/evidence.md#e27-shutdown-record)
+
+[Full retrospective: numbers, architecture at shutdown, decisions, failures and lessons](docs/retrospective.md)
 
 ## Engineering results
 
@@ -79,7 +101,7 @@ The important design choices are in the ownership rules:
 
 **The predictive claim did not earn support.** The event backtest and sensitivity sweep did not establish predictive validity. The controls also had material limitations, so “proven noise” would overstate the negative result. I narrowed the product to descriptive coverage intelligence rather than market the score as an election forecast. [Evaluation](docs/evaluation.md)
 
-**Technical delivery did not establish product-market fit.** Publication, signup and email infrastructure were real; sustained paid demand, retention and customer outcomes were not established in the inspected record. The October snapshot records an every-other-day wind-down, not a commercial scale-up.
+**Technical delivery did not establish product-market fit.** Publication, signup and email infrastructure were real; sustained paid demand, retention and customer outcomes were not established in the record. October brought an every-other-day wind-down, not a commercial scale-up, and the service closed on November 6, 2026; signup is retired.
 
 ## Explore the implementation
 
@@ -99,7 +121,7 @@ The important design choices are in the ownership rules:
 
 Built through iterative development, structured review and production feedback. I led product direction and operational decisions—from addressing reliability issues to narrowing the product when the evidence did not support its original ambition.
 
-The idea dates to **February 2026 in my account**; the earliest verified main-repository commit is **May 1**. The public source snapshot ends on **October 23, 2026**. Its fresh public Git history is a release history, not a reconstruction of earlier commits.
+The idea dates to **February 2026 in my account**; the earliest verified main-repository commit is **May 1**. The public source snapshot ends on **October 23, 2026**; the project itself ran until its shutdown on **November 6, 2026** ([retrospective](docs/retrospective.md)). Its fresh public Git history is a release history, not a reconstruction of earlier commits.
 
 [Project evolution](docs/evolution.md) · [Full case study](docs/case-study.md) · [Dated evidence](docs/evidence.md)
 

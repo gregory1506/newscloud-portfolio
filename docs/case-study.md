@@ -6,7 +6,7 @@
 
 NewsCloud began with a practical question: could a recurring view of regional news make political coverage easier to follow without reading every source? The implementation combined gathering, word clouds, language scoring, a static dashboard and email. The early ambition also included interpreting the signal as politically predictive. Those are different problems, and the project ultimately had to separate them.
 
-By September, the U.S. product was a Race Board: a descriptive view of monitored coverage and public campaign finance, with supporting evidence and an email edition. Trinidad & Tobago and United Kingdom regional pages retained a topic-oriented presentation. The October 23 snapshot records a reduced, every-other-day edition cadence while maintenance continued independently. It does not establish subsequent live service status. [E01–E11, E21](evidence.md)
+By September, the U.S. product was a Race Board: a descriptive view of monitored coverage and public campaign finance, with supporting evidence and an email edition. Trinidad & Tobago and United Kingdom regional pages retained a topic-oriented presentation. The October 23 snapshot records a reduced, every-other-day edition cadence while maintenance continued independently. It does not establish subsequent live service status. [E01–E11, E21](evidence.md) The final edition published on November 6, 2026, after which production was shut down; see the [retrospective](retrospective.md) and [E25–E27](evidence.md#e25-lifetime-totals-at-shutdown).
 
 ## Responsibility and method
 

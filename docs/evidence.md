@@ -105,3 +105,15 @@ Three evidence types are kept distinct:
 ## E24: Calculator and diagnostic semantics
 
 **October 23 source snapshot.** [`rate_race`](../shared/coverage_rating.py) renormalizes available components and attenuates by input confidence; incumbency alone cannot justify a directional band. [`coverage_quality`](../shared/coverage_quality.py) returns diagnostics rather than making publication decisions. [`export_race_board_data`](../scripts/export_race_board_data.py) owns the monitoring predicate. These are inspectable contracts, not evidence of calibrated probability, a hard source-quality publication gate, or nationwide coverage completeness.
+
+## E25: Lifetime totals at shutdown
+
+**Read November 6, 2026.** Production database and private source-repository counts at shutdown: 182 run records (151 published, none recorded as failed); 53 regions per run; 9,469 region-days; 48,653 source pulls from 366 distinct sources; 1,364,869 raw feed/API items (not deduplicated); 9,588 word clouds; 509 races (435 House, 35 Senate, 39 governor); 21,887 race snapshots over 43 board editions; about 1,180 emails handed to the provider; 783 commits, 1,102 tests and 35 migrations in the private repository. These are activity counts from operator records, not readership, accuracy or uptime measures; “none recorded as failed” does not mean every scheduled edition published. They postdate this repository's October 23 source snapshot and are not reproducible from it. [Retrospective](retrospective.md)
+
+## E26: Board versus unofficial results
+
+**AP race calls as of November 6, 2026, 18:36 UTC (unofficial).** A per-race comparison of the final board against called results scored 164 monitored races. Of 145 with a leaning band and a called Democratic/Republican winner, the band's side matched the winner in 104 (72%); a naive seat-holder-keeps-it rule matched 101 (70%) on the same races. Of 50 monitored seats that flipped, 23 leaned toward the winner, 9 were Tossup and 18 leaned the wrong way. Coverage Rating bands are descriptive coverage signals, **not forecasts**; the monitored subset is non-random, counts are unofficial and may change, and the margin over the baseline is small. This does not overturn the July negative-control result (E05–E06). [Retrospective](retrospective.md#outcome-the-board-versus-the-results)
+
+## E27: Shutdown record
+
+**November 6, 2026.** Production deploy workflows were disabled; 3 scheduler jobs, the task queue, the Cloud Run job, all 14 functions, 10 Pub/Sub topics, both container-image repositories and 9 alert policies were deleted. The database, object storage, publication snapshots, secrets and static archive sites were kept, with an “Archived” banner on every page. A farewell email went to 7 subscribers (stored under run date November 7); list deletion is scheduled for December 7, 2026. Records of deletion are operator records; this repository cannot verify cloud state. [Retrospective](retrospective.md#shutdown-record)
